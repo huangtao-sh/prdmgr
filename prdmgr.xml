@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Config>
+    <MySQL default="LocalHost">
+        <LocalHost db="mysite" host="127.0.0.1" passwd="A2FC897DB2FEFD33" user="hunter"/>
+    </MySQL>
+    <InitialPath os="windows">
+        <Item dir="D:/huangtao/Documents/工作平台/业务报表/考勤报送/201404" type="考勤数据（总行）"/>
+        <Item dir="D:/huangtao/Documents/工作平台/业务报表/考勤报送/201404" type="考勤数据（卡中心）"/>
+    </InitialPath>
+    <User default="huangtao">
+        <huangtao autologin="2" passwd="A2FC897DB2FEFD33" user="huangtao"/>
+    </User>
+</Config>
