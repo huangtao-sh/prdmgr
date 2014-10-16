@@ -23,7 +23,7 @@ class Login(TransFrame):
     def post(self):
         def get_perms(cur):
             self['permissions']=[r[0] for r in cur]
-        self.call_proc('get_permissions',args=self['teller,result'],proc=get_perms)
+        self.call_proc('get_permissions',params=self['teller,result'],call_back=get_perms)
         extra=self.datas('teller,permissions')
         self.notify('',extra)
         self.user_cnf(self['user'],self.datas('user,passwd,autologin'))

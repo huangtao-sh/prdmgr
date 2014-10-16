@@ -8,6 +8,6 @@
         <Item dir="D:/huangtao/Documents/工作平台/业务报表/考勤报送/201404" type="考勤数据（卡中心）"/>
     </InitialPath>
     <User default="huangtao">
-        <huangtao autologin="2" passwd="A2FC897DB2FEFD33" user="huangtao"/>
+        <huangtao autologin="2" passwd="ECBFB4C357CF1C56" user="huangtao"/>
     </User>
 </Config>

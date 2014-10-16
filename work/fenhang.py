@@ -10,7 +10,7 @@ class Fenhang(TransFrame):
     def init(self):
         self.query('select branchname,`order` from report_branch'\
                 " where(level in(1,2))and(branchno<'800000')"\
-                ,proc=self.proc)
+                ,call_back=self.proc)
 
     def submit(self):
         s=self['brs']

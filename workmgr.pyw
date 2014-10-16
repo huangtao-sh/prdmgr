@@ -6,12 +6,12 @@
 #from mylib.qtgui import QtGui,MainWindow
 from qtgui import MdiWindow
 from os.path import expanduser,dirname,join
-from mylib.my import Mysql
-#from mymgr import MyMgr as Mysql
+#from mylib.my import Mysql
+from mymgr import MyMgr
 from mylib.xmlfile import Config
 from settings import apps,comm_app
 
-class Window(MdiWindow,Mysql,Config):  #主窗口
+class Window(MdiWindow,MyMgr,Config):  #主窗口
     base_dir=dirname(__file__)   #文件路径
     apps=apps                    #子窗口
     title='营运管理平台 Ver 1.0'  #窗口标题
@@ -19,7 +19,7 @@ class Window(MdiWindow,Mysql,Config):  #主窗口
     def init(self):
         self.widget.resize(960,600)
         self.open_config(join(self.base_dir,'prdmgr.xml'))  #打开配置文件
-        self.connect_(self.my_cnf())  #连接数据库
+        self.connect(**self.my_cnf())  #连接数据库
         self.teller=''
         super().init()    
         login=self.add_child('auth.users.Login')
@@ -27,7 +27,7 @@ class Window(MdiWindow,Mysql,Config):  #主窗口
             login.submit()
         else:
             self.notify('',{})
-        
+
     def proc_permissions(self,permissions):
         if not permissions:
             permissions=[]

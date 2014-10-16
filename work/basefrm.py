@@ -6,12 +6,13 @@
 # 创建：2013-5-26
 # 修订：2014-07-22 对调用Mysql的方式进行调整
 # 修订：2014-8-8 对submit 函数进行修订
-from mylib.qtgui import BaseForm
-from mylib.my import Mysql
+from qtgui import Window 
+#from mylib.my import Mysql
+from mymgr import MyMgr
 from mylib.xmlfile import Config
 from datetime import date
 
-class TransFrame(BaseForm,Mysql,Config):
+class TransFrame(Window,MyMgr,Config):
     
     @property
     def teller(self):
@@ -34,7 +35,7 @@ class TransFrame(BaseForm,Mysql,Config):
             self.showerr(str(e))
 
     def reg_journal(self,tr_code,memo):
-        self.call_proc('Regjournal',args=(self.teller,tr_code,memo))
+        self.call_proc('Regjournal',params=(self.teller,tr_code,memo))
     
     def __general_list(self,begin,step,base,width,count):
         return tuple("%s-%s"%(begin//base,str(begin%base+1).zfill(width))\
@@ -57,7 +58,7 @@ class TransFrame(BaseForm,Mysql,Config):
         return self.query_str('select getpy(%s)',params=(string,))
     
     def query_data(self,sql,params=None,multi=None):
-        r=self.query(sql,params,multi)
+        r=self.query(sql,params)
         return r.fetchall()
 
 class TrFrame(TransFrame):
@@ -90,7 +91,7 @@ class TrFrame(TransFrame):
         if self.proc_name:
             self[self.param_list]=self.call_proc(\
                     self.proc_name,self[self.param_list],\
-                    proc=self.proc_result)
+                    call_back=self.proc_result)
             if self.result:
                 self.failed()
             else:
