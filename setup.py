@@ -9,9 +9,6 @@ from distutils.sysconfig import get_python_lib
 # still present in site-packages. See #18115.
 
 # Dynamically calculate the version based on django.VERSION.
-packages=find_packages()
-package_dir=dict([('prdmgr.%s'%(x),x) for x in packages])
-packages=package_dir.keys()
 version = '0.0.1'
 setup(
     name='prdmgr',
@@ -19,10 +16,9 @@ setup(
     url='',
     author='huangtao',
     author_email='huangtao.jh@gmail.com',
-    description=('My web site'),
+    description=('prdmgr'),
     license='GPL',
-    packages=packages,
-    package_dir=package_dir,
+    packages=find_packages,
     include_package_data=True,
     scripts=['workmgr.pyw'],
     data_files=[]
