@@ -2,4 +2,4 @@ __pycache__
 build
 data
 *.egg-info
-
+dist

@@ -2,7 +2,8 @@
 import os
 import sys
 from glob import glob
-from setuptools import setup,find_packages
+from setuptools import find_packages
+from distutils.core import setup
 from distutils.sysconfig import get_python_lib
 # Warn if we are installing over top of an existing installation. This can
 # cause issues where files that were deleted from a more recent Django are
@@ -18,8 +19,9 @@ setup(
     author_email='huangtao.jh@gmail.com',
     description=('prdmgr'),
     license='GPL',
-    packages=find_packages,
+    packages=find_packages(),
+    package_data={'prdmgr':['workmgr.gui','prdmgr.xml','images/*.*'],
+                  },
     include_package_data=True,
-    scripts=['workmgr.pyw'],
-    data_files=[]
+    scripts=['workmgr.py'],
 )

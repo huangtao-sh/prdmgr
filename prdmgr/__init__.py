@@ -11,7 +11,7 @@ from mymgr import MyMgr
 from mylib.xmlfile import Config
 import sys
 
-class Window(MdiWindow,MyMgr,Config):  #主窗口
+class PrdMgr(MdiWindow,MyMgr,Config):  #主窗口
     base_dir=dirname(__file__)   #文件路径
     sys.path.append(base_dir)
     from settings import apps,comm_app
@@ -61,4 +61,4 @@ class Window(MdiWindow,MyMgr,Config):  #主窗口
     
 if __name__=='__main__':
     #QtGui.main(Window)
-    Window.run()
+    PrdMgr.run()
