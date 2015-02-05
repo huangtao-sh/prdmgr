@@ -11,6 +11,7 @@ from distutils.sysconfig import get_python_lib
 
 # Dynamically calculate the version based on django.VERSION.
 version = '0.0.1'
+scripts=['workmgr.py']
 setup(
     name='prdmgr',
     version=version,
@@ -23,5 +24,7 @@ setup(
     package_data={'prdmgr':['workmgr.gui','prdmgr.xml','images/*.*'],
                   },
     include_package_data=True,
-    scripts=['workmgr.py'],
+    scripts=scripts,
 )
+from stdlib.setup import create_cmd
+create_cmd(scripts)
