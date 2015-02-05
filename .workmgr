@@ -1,0 +1,9 @@
+[Current]
+mysql = localhost
+
+[MySQL-localhost]
+user = hunter
+host = localhost
+passwd = A2FC897DB2FEFD33
+db = prdmgr
+

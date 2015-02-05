@@ -6,8 +6,8 @@
 # 修改：2014-2-14 采用QT模式处理
 # 修改：2014-7-23 采用HTML编写界面
 #from .basefrm import TransFrame
-from mylib.qtgui import BaseForm
-class About(BaseForm):
+from .basefrm import TransFrame
+class About(TransFrame):
     initial={'msgvar':'''
         <center>
         <br/><br/>

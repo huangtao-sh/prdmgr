@@ -7,8 +7,9 @@
 from qtgui import MdiWindow
 from os.path import expanduser,dirname,join
 #from mylib.my import Mysql
-from mymgr import MyMgr
-from mylib.xmlfile import Config
+#from mymgr import MyMgr
+from stdlib import MyMgr,Config
+#from mylib.xmlfile import Config
 import sys
 
 class PrdMgr(MdiWindow,MyMgr,Config):  #主窗口
@@ -21,15 +22,18 @@ class PrdMgr(MdiWindow,MyMgr,Config):  #主窗口
     ui_file=join(base_dir,'workmgr.gui')  #UI资源文件名
     def init(self):
         self.widget.resize(960,600)
-        self.open_config(join(self.base_dir,'prdmgr.xml'))  #打开配置文件
-        self.connect(**self.my_cnf())  #连接数据库
+        self.load_conf()
+        #self.open_config(join(self.base_dir,'prdmgr.xml'))  #打开配置文件
+        self.connect(**self.mysql_cnf())  #连接数据库
         self.teller=''
-        super().init()    
+        super().init()
+        '''
         login=self.add_child('auth.users.Login')
         if login['autologin']=='2':
             login.submit()
         else:
             self.notify('',{})
+        '''
 
     def proc_permissions(self,permissions):
         if not permissions:

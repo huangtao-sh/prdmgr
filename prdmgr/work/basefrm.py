@@ -8,8 +8,8 @@
 # 修订：2014-8-8 对submit 函数进行修订
 from qtgui import Window 
 #from mylib.my import Mysql
-from mymgr import MyMgr
-from mylib.xmlfile import Config
+from stdlib import MyMgr,Config
+#from mylib.xmlfile import Config
 from datetime import date
 
 class TransFrame(Window,MyMgr,Config):
