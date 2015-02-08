@@ -38,6 +38,18 @@ WorkUI
             label text=[]
                 variable db=text
                 property minimumwidth=60
+    widget name=MySQLConfig
+        WindowTitle="数据库配置"
+        form
+            combobox label=[配置名称]
+                var cfglist=items cur=currentindex
+                singal currentindexchanged=cfg_change
+            edit label=[服务器]
+            edit label=[用户]
+            edit label=[密码]
+            combobox label=[数据库]
+            a href=buttons
+
     widget name=DataBackup
         WindowTitle='数据库备份/恢复'
         form
@@ -277,6 +289,7 @@ WorkUI
                 button text=[关闭]
                     connect clicked=close
     widget name=Kemu
+        windowtitle="会计科目查询"
         hbox
             groupbox text=[科目列表]
                 vbox

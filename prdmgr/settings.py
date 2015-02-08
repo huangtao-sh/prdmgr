@@ -14,6 +14,11 @@ apps=[
             'icon':'open.png',
             'shortcut':'Ctrl+I',
             },
+        {
+            'group':'settings',
+            'text':'数据库配置',
+            'class':'tools.mycnf.MySQLConfig',
+            },
         
         {
             'group':'tools',
