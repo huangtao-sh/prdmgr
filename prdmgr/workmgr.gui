@@ -276,3 +276,33 @@ WorkUI
                     connect clicked=submit
                 button text=[关闭]
                     connect clicked=close
+    widget name=Kemu
+        hbox
+            groupbox text=[科目列表]
+                vbox
+                    scrollarea
+                        minimumwidth=300
+                        minimumheight=300
+                        hbox
+                            tablewidget name=tw
+                                hlabels="科目 名称"
+                                columnwidths=[70,170]
+                                var result=data
+                                signal itemselectionchanged=showdetail                          
+                    hbox
+                        edit name=edtsearch
+                            var search=text
+                            signal returnPressed=search
+                        button text=[搜索]
+                            signal clicked=search
+            groupbox text=[详细信息]
+                vbox
+                    scrollarea
+                        minimumwidth=350
+                        hbox
+                            textbrowser name=dsc
+                                var describ=text
+                    hbox
+                        stretch
+                        button text=[复制]
+                            signal clicked=copy

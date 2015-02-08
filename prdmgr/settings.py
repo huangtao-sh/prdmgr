@@ -64,6 +64,11 @@ apps=[
             'class':'tools.sushu.GongYue',
             },
          {
+            'group':'tools',
+            'text':'会计科目',
+            'class':'tools.kemu.Kemu',
+            },
+         {
             'group':'auth',
             'text':'用户签到',
             'class':'auth.users.Login',
