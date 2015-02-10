@@ -303,7 +303,7 @@ WorkUI
                         minimumheight=300
                         hbox
                             tablewidget name=tw
-                                hlabels="科目 名称"
+                                hlabels="科目|名称"
                                 columnwidths=[70,170]
                                 var result=data
                                 signal itemselectionchanged=showdetail                          
