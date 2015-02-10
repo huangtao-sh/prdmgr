@@ -44,10 +44,15 @@ WorkUI
             combobox label=[配置名称]
                 var cfglist=items cur=currentindex
                 singal currentindexchanged=cfg_change
+                minimumwidth=205
             edit label=[服务器]
+                minimumwidth=200
             edit label=[用户]
+                minimumwidth=200
             edit label=[密码]
+                minimumwidth=200
             combobox label=[数据库]
+                minimumwidth=205
             a href=buttons
 
     widget name=DataBackup
@@ -319,3 +324,17 @@ WorkUI
                         stretch
                         button text=[复制]
                             signal clicked=copy
+    widget name=KemuView
+        windowtitle="会计科目浏览"
+        hbox
+            treewidget
+                columncount=2
+                minimumwidth=300
+                minimumheight=400
+                labels="科目|名称"
+                columnwidths=[125,70]
+                var data=data
+                signal itemclicked=click
+            textbrowser
+                var detail=text
+                minimunwidth=350

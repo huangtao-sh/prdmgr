@@ -74,6 +74,11 @@ apps=[
             'class':'tools.kemu.Kemu',
             },
          {
+            'group':'tools',
+            'text':'会计科目浏览',
+            'class':'tools.kemu.KemuView',
+            },
+         {
             'group':'auth',
             'text':'用户签到',
             'class':'auth.users.Login',

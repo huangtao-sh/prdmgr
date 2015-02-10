@@ -30,4 +30,28 @@ class Kemu(TrFrame):
                             (item,))
         self['describ']='<h1>%s\t%s</h1><p>%s</p>'%(item,name,
                     "</p><p>".join(desc.split()))
-
+from qtgui.textparser import element,sub_element
+class KemuView(TrFrame):
+    def init(self):
+        self.connect(host='localhost',user='hunter',passwd='123456',
+                   db='prdmgr')
+        s=['资产类','负债类','所有者权益','资产负债共同类','损益类',
+           '或有事项','备查登记类']
+        d=element('Root')
+        [sub_element(d,x) for x in s]
+        categorys=d.childs()
+        for r in self.query('select item,name from kemu').fetchall():
+            if len(r[0])==4:
+                kemu=sub_element(categorys[int(r[0][0])-1],
+                    'item',{'text':r})
+            else:
+                sub_element(kemu,'item',{'text':r})
+        self['data']=d
+    def click(self,item):
+        kemu=item.text(0)
+        name=item.text(1)
+        desc=self.query_str('select describ from kemu where item=%s',
+                            [kemu,])
+        if desc:
+            self['detail']="<h1>%s\t%s</h1><p>%s</p>"%(kemu,name,
+                "</p></>".join(desc.split()))
